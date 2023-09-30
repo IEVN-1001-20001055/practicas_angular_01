@@ -1,0 +1,11 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    margin: 1 rem auto;
+    max-width: 600px;
+}
+.num{
+    display: flex;
+    min-width: 600px;
+    
+}
