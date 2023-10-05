@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="row">
+        <div class="col">
+            <div class="container">
+                <h1>Entradas</h1>
+                <mat-form-field>
+                    <p>Nombre: </p>
+                    <input type="text" name="nombre" [(ngModel)]="nombre">
+                </mat-form-field>
+                <mat-form-field>
+                    <p>Cantidad compradores: </p>
+                    <input matInput [(ngModel)]="compradores" type="number" placeholder="Numero" min="0" max="999">
+                </mat-form-field>
+                <div style="padding-left: 15px;">
+                    <p>Tarjeta cinecon </p>
+                    <div class="form-check form-check-inline">
+                        <input (click)="descuentoTar()"  value="si" [(ngModel)]="tarjeta" class="form-check-input" type="radio" name="tarjeta" id="flexRadioDefault1">
+                        <label class="form-check-label" for="flexRadioDefault1">
+                          <p>Sí</p>
+                        </label>
+                    </div>
+                    <div  class="form-check form-check-inline">
+                        <input (click)="DescuentoTar()" value="no" [(ngModel)]="tarjeta" class="form-check-input" type="radio" name="tarjeta" id="flexRadioDefault1">
+                        <label class="form-check-label" for="flexRadioDefault1">
+                          <p>No</p>
+                        </label>
+                    </div>
+                    <p *ngIf="descuentoTarjeta">10% de descuento</p>
+                </div>
+                <mat-form-field>
+                    <p>Cantidad de boletos: </p>
+                    <input matInput ngModel [(ngModel)]="boletos" type="number" placeholder="Numero" min="0" max='999'>
+                    <p *ngIf="descuentoBoletos">{{descuento}}</p>
+                    <label><h3>{{error}}</h3></label>
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="col">
+            <div class="container">
+                <h1>Salidas</h1>
+                <mat-form-field>
+                    <div *ngIf="salida">
+                        <p>Nombre: {{nombre}}</p>
+                        <p>Cantidad de compradores: {{compradores}}</p>
+                        <p>Cantidad de boletos: {{boletos}}</p>
+                    </div>
+                    <p>Valor a pagar</p>
+                    <input type="text" name="" value="${{total}}" disabled>
+                </mat-form-field>
+            </div>
+        </div>     
+    </div>
+    <div class="row" >
+        <div class="col" >
+            <div class="container2">
+                    <h2>Acciones</h2>
+                <button style="background-color: rgba(216, 112, 147, 0.515); margin: 1rem auto;" mat-raised-button (click)="acciones()">
+                    <p>Procesar</p>
+                </button>
+                <button style="background-color: rgba(216, 112, 147, 0.515); margin: 1rem auto;" mat-raised-button (click)="borrar()">
+                    <p>Borrar</p>
+                </button>
+            </div>   
+        </div>
+    </div> 
+</body>
+</html>

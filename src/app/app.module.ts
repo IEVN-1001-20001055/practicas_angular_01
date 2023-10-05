@@ -2,26 +2,30 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { FormsModule } from '@angular/forms';
-import {MatInputModule} from '@angular/material/input';
-import {MatButtonModule} from '@angular/material/button';
+
 
 import { AppComponent } from './app.component';
 import { OperasBasComponent } from './formularios/operas-bas/operas-bas.component';
 import { MultiplicacionAporBComponent } from './formularios/multiplicacion-apor-b/multiplicacion-apor-b.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MenuComponent } from './menu/menu/menu.component';
+import { MaterialModule } from './material/material/material.module';
+import { CinepolisComponent } from './cinepolis/cinepolis/cinepolis.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     OperasBasComponent,
-    MultiplicacionAporBComponent
+    MultiplicacionAporBComponent,
+    MenuComponent,
+    CinepolisComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     BrowserAnimationsModule,
-    MatButtonModule,
-    MatInputModule
+    MaterialModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
