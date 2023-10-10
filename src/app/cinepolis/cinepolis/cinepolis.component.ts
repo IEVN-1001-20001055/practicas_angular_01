@@ -44,16 +44,25 @@ valorPagar() {
   } else if (this.boletos < 6) {
     descuentoPorcentaje = 10;
 
-  } else {
+  } else if (this.boletos > 7) {
     descuentoPorcentaje = 15;
   }
 
-  if (this.tarjeta == 'si') {
-    descuentoPorcentaje += 10;
+  if (this.tarjeta == 'no') {
+    const descuentoDecimal = descuentoPorcentaje / 100;
+    this.total = this.boletos * this.precio - this.boletos * this.precio * descuentoDecimal;
+    
+  } else if (this.tarjeta == 'si') {
+    const descuentoDecimal = descuentoPorcentaje / 100;
+    this.total = this.boletos * this.precio - this.boletos * this.precio * descuentoDecimal;
+    this.total -= this.total * 0.1; 
+  }else{
+    const descuentoDecimal = descuentoPorcentaje / 100;
+    this.total = this.boletos * this.precio - this.boletos * this.precio * descuentoDecimal;
   }
+  
 
-  const descuentoDecimal = descuentoPorcentaje / 100;
-  this.total = this.boletos * this.precio - this.boletos * this.precio * descuentoDecimal;
+  
 
   this.descuentoBoletos = descuentoPorcentaje > 0;
   this.salida = true;
@@ -78,5 +87,6 @@ borrar() {
   this.descuentoBoletos = false;
   }
 }
+
 
 
